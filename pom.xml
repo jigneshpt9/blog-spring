@@ -69,6 +69,7 @@
 
 	<properties>
 		<java.version>1.8</java.version>
+		<start-class>com.cisco.blogger.BloggerApplication</start-class>
 	</properties>
 <build>
 		<plugins>
