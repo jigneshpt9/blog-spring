@@ -7,7 +7,6 @@
 	<packaging>war</packaging>
 	<name>CMAD Blogger</name>
 
-<!-- Preetee pom.xml -->
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
