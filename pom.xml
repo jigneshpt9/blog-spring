@@ -11,19 +11,19 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.4.2.RELEASE</version>
+		<version>1.5.6.RELEASE</version>
 	</parent>
-	
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-tomcat</artifactId>
-            <scope>provided</scope>
-        </dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
@@ -45,7 +45,6 @@
 		<dependency>
 			<groupId>org.mongodb</groupId>
 			<artifactId>mongo-java-driver</artifactId>
-			<version>3.4.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.mongodb.morphia</groupId>
@@ -62,16 +61,16 @@
 					<artifactId>mongo-java-driver</artifactId>
 				</exclusion>
 			</exclusions>
-</dependency>
+		</dependency>
 
 	</dependencies>
-	
+
 
 	<properties>
 		<java.version>1.8</java.version>
 		<start-class>com.cisco.blogger.BloggerApplication</start-class>
 	</properties>
-<build>
+	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -105,6 +104,6 @@
 				</executions>
 			</plugin>
 		</plugins>
-</build>
+	</build>
 
 </project>
