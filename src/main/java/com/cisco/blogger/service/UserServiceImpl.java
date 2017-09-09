@@ -18,13 +18,13 @@ public class UserServiceImpl implements UserService {
 	 
 	public void registerUser(User user) {
 		System.out.println("in registerUser entry");
-//		User foundUser = this.userRepository.getUserByEmailId(user.getEmailId());
-//		if (null != foundUser){
-//			throw new DuplicateUserException("Duplicate user register request received with email id"+ user.getEmailId());
-//		}
+		
+		if (ifUserExists(user.getEmailId())){
+			throw new DuplicateUserException("Duplicate user register request received with email id"+ user.getEmailId());
+		} else {
 		System.out.println("in registerUser exit");
 		this.userRepository.insert(user);
-		
+		}
 	}
 
 	public void updateUser(User user) {
@@ -39,13 +39,14 @@ public class UserServiceImpl implements UserService {
 
 	public boolean ifUserExists(String emailId)
 	{
-		return false;
+		boolean userExists = false;
+		User foundUser = this.userRepository.getUserByEmailId(emailId);
+		if(null!=foundUser) {
+			userExists = true;
+		}
+		
+		return userExists;
 		
 	}
 
-	@Override
-	public User findUser(String emailId) {
-		return null;
-		//return userdao.findUser(emailId);
-	}
 }

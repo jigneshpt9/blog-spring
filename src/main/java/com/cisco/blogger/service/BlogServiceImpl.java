@@ -21,13 +21,14 @@ public class BlogServiceImpl implements BlogService {
 
 	public String createBlog(Blog blog) {
 
-		return null;
+	Blog newBlog = this.blogRepository.insert(blog);
+	return newBlog.getId();
 
 	}
 
-	public Blog updateBlog(Blog blog) {
+	public void updateBlog(Blog blog) {
 		
-		return null;
+		this.blogRepository.save(blog);
 	}
 
 	public List<Blog> searchBlogs(String keyword) {
@@ -36,25 +37,20 @@ public class BlogServiceImpl implements BlogService {
 	}
 
 	public Blog viewBlog(String blogId) {
-		return blogRepository.findById(blogId);
+		return this.blogRepository.findById(blogId);
 	}
 
 	public List<Blog> listAllBlogs() {
 
-		return blogRepository.findAll();
+		return this.blogRepository.findAll();
 	}
 
-	public void addComment(String id, Comment comment) {
+	public void addComment(Blog blog) {
 
-		//blogRepository.addComment(id, comment);
-
+		this.blogRepository.save(blog);
 	}
 
-	@Override
-	public void addComment(int blogId, Comment comment) {
-		// TODO Auto-generated method stub
-		
-	}
+
 
 	
 

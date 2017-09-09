@@ -9,6 +9,7 @@ import com.cisco.blogger.api.User;
 @Repository
 public interface UserRepository extends MongoRepository<User,String>, QueryDslPredicateExecutor<User>{
 
-//	User getUserByEmailId(String emailId);
+	User getUserByEmailId(String emailId);
+
 
 }

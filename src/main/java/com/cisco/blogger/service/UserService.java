@@ -12,7 +12,6 @@ public interface UserService {
 	
 	public boolean ifUserExists(String emaildId);
 	
-	public User findUser(String emailId);
 	
 	
 }

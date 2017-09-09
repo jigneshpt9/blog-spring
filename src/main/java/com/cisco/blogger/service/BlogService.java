@@ -11,7 +11,7 @@ public interface BlogService {
 	
 	public String createBlog(Blog blog);
 	
-	public Blog updateBlog(Blog blog);
+	public void updateBlog(Blog blog);
 	
 	public List<Blog> searchBlogs(String keyword);
 	
@@ -19,6 +19,6 @@ public interface BlogService {
 	
 	public List<Blog> listAllBlogs();
 	
-	public void addComment(int blogId,Comment comment);
+	public void addComment(Blog blog);
 	
 }

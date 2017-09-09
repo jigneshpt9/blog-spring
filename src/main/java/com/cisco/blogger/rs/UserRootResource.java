@@ -39,6 +39,7 @@ public class UserRootResource {
 		    return Response.status(201).entity(user).header("location", "/user" + user.getEmailId()).build();
 
 		} catch(DuplicateUserException due) {
+			System.out.println("Duplicate Use:"+user.getEmailId());
 			return Response.status(500).build();
 		}
 	}
@@ -54,28 +55,28 @@ public class UserRootResource {
 				     return Response.status(201).build();
 			
 	}
-	@GET
-	@Path("/{emailId}/login/{key}")
-	@Consumes({ MediaType.APPLICATION_JSON})
-	@Produces({ MediaType.APPLICATION_JSON})	
-	public Response userlogin(@PathParam("emailId") String emailId, @PathParam("key") String key) {
-	      System.out.println("in userlogin");		  
-		  User user =  userService.findUser(emailId);
-		  //TBD for password authentication
-		  
-		  if (user == null)
-			  return Response.status(404).build();
-		  else {
-			    user = userService.validateUser(emailId, key);
-			    if (user != null ){
-			        return Response.status(201).entity(user).header("location", "/user" + user.getEmailId()).build();
-			    }
-			    else
-			    {
-				     return Response.status(401).build();
-			    }
-		  }	
-	}
+//	@GET
+//	@Path("/{emailId}/login/{key}")
+//	@Consumes({ MediaType.APPLICATION_JSON})
+//	@Produces({ MediaType.APPLICATION_JSON})	
+//	public Response userlogin(@PathParam("emailId") String emailId, @PathParam("key") String key) {
+//	      System.out.println("in userlogin");		  
+//		  User user =  userService.findUser(emailId);
+//		  //TBD for password authentication
+//		  
+//		  if (user == null)
+//			  return Response.status(404).build();
+//		  else {
+//			    user = userService.validateUser(emailId, key);
+//			    if (user != null ){
+//			        return Response.status(201).entity(user).header("location", "/user" + user.getEmailId()).build();
+//			    }
+//			    else
+//			    {
+//				     return Response.status(401).build();
+//			    }
+//		  }	
+//	}
 
 		
 	@POST

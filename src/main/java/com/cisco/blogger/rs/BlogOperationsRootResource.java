@@ -45,8 +45,7 @@ public class BlogOperationsRootResource {
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public Response add(Blog blog) {
 		try {
-			User userObject = userService.findUser(blog.getBlogOwner().getEmailId());
-			blog.setBlogOwner(userObject);
+			
 			String blogId = blogService.createBlog(blog);
 
 			return Response.ok().entity(blog).header("location", "/blogger/blog/view/" + blogId).build();
@@ -60,20 +59,14 @@ public class BlogOperationsRootResource {
 	}
 
 	@POST
-	@Path("/{blogId}")
+	@Path("/{id}")
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public Response update(@PathParam("blogId") String blogId, Blog blog) {
+	public Response update(@PathParam("id") String id, Blog blog) {
 		try {
-			User userObject = userService.findUser(blog.getBlogOwner().getEmailId());
-			Blog blogUpdated = null;
-			if (null != userObject) {
-				blogUpdated = blogService.updateBlog(blog);
-			} else {
-				throw new BlogUpdateException("No blog found in database");
-			}
-
-			return Response.ok().entity(blog).header("location", "/blogger/blog/view/" + blogUpdated.getId())
+			 blogService.updateBlog(blog);
+			
+			return Response.ok().entity(blog).header("location", "/blogger/blog/view/" +id)
 					.build();
 		} catch (BlogUpdateException bue) {
 			return Response.status(400).build();
@@ -137,17 +130,18 @@ public class BlogOperationsRootResource {
 	}
 
 	@POST
-	@Path("/comment/{blogId}")
+	@Path("/comment")
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public Response addComment(@PathParam("blogId") int blogId, Comment comment) {
+	public Response addComment(Blog blog) {
 		try {
 
-			blogService.addComment(blogId, comment);
+			blogService.addComment(blog);
 
 			return Response.status(200).build();
 
 		} catch (BlogCreateException bce) {
+			bce.printStackTrace();
 			return Response.status(400).build();
 		} catch (BlogException be) {
 			return Response.status(500).build();
@@ -155,23 +149,5 @@ public class BlogOperationsRootResource {
 
 	}
 	
-//	@POST
-//	@Path("/reply/{commentId}")
-//	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-//	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-//	public Response replyOnComment(@PathParam("commentId") int commentId, Reply reply) {
-//		try {
-//
-//			blogService.replyOnComment(commentId, reply);
-//
-//			return Response.status(200).build();
-//
-//		} catch (BlogCreateException bce) {
-//			return Response.status(400).build();
-//		} catch (BlogException be) {
-//			return Response.status(500).build();
-//		}
-//
-//	}
 
 }
