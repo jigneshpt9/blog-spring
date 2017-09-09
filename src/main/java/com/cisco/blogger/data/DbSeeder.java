@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -15,7 +16,7 @@ import com.cisco.blogger.api.User;
 public class DbSeeder implements CommandLineRunner {
 	private BlogRepository blogRepository;
 	
-	
+	@Autowired
     public DbSeeder(BlogRepository blogRepository) {
         this.blogRepository = blogRepository;
     }
