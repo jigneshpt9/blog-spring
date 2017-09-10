@@ -18946,7 +18946,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 exports.default = function (method, url, data) {
-  var baseUrl = "/bloggerworld/blogger/blog";
+  //  const baseUrl = "/bloggerworld/blogger/blog";
+  var baseUrl = "/blogger/blogger-world/blog";
   return (0, _axios2.default)({
     headers: {
       'Content-Type': 'application/json'
