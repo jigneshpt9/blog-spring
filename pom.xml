@@ -7,7 +7,6 @@
 	<packaging>war</packaging>
 	<name>CMAD Blogger</name>
 
-<!-- JIgnesh project  -->
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -19,6 +18,10 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+		<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+         </dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
@@ -98,6 +101,7 @@
 							<processor>
 								org.springframework.data.mongodb.repository.support.MongoAnnotationProcessor
 							</processor>
+							<mainClass>com.cisco.blogger.BloggerApplication</mainClass>
 							<logOnlyOnError>true</logOnlyOnError>
 						</configuration>
 					</execution>
