@@ -18946,8 +18946,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 exports.default = function (method, url, data) {
-  //  const baseUrl = "/bloggerworld/blogger/blog";
-  var baseUrl = "/blogger/blogger-world/blog";
+  var baseUrl = "/bloggerworld/blogger/blog";
+  //  const baseUrl = "/blogger/blogger-world/blog";
   return (0, _axios2.default)({
     headers: {
       'Content-Type': 'application/json'
@@ -19250,30 +19250,6 @@ var Home = function (_React$Component) {
             _Grid.Cell,
             { col: this.state.listCol },
             this.renderList()
-          )
-        ),
-        _react2.default.createElement(
-          'div',
-          { 'class': 'card', style: 'width: 20rem;' },
-          _react2.default.createElement('img', { 'class': 'card-img-top', src: '...', alt: 'Card image cap' }),
-          _react2.default.createElement(
-            'div',
-            { 'class': 'card-body' },
-            _react2.default.createElement(
-              'h4',
-              { 'class': 'card-title' },
-              'Card title'
-            ),
-            _react2.default.createElement(
-              'p',
-              { 'class': 'card-text' },
-              'Some quick example text to build on the card title and make up the bulk of the card\'\'s content.'
-            ),
-            _react2.default.createElement(
-              'a',
-              { href: '#', 'class': 'btn btn-primary' },
-              'Go somewhere'
-            )
           )
         )
       );
